@@ -5,4 +5,7 @@ export const get = async () => {
   return response.data;
 };
 
-export const a = 44;
+export const getById = async (id: number) => {
+  const response = await service.get(`/users/${id}`);
+  return response.data;
+};
