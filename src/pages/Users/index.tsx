@@ -1,7 +1,9 @@
+import Header from "../../components/Header";
+
 function Users() {
   return (
-    <div>
-      <h1>Users Page</h1>
+    <div className="">
+      <Header title="Users" />
     </div>
   );
 }
