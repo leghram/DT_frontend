@@ -5,6 +5,7 @@ import {
   getById,
   deleteUser,
   createUser,
+  updateUser,
 } from "../../services/users.service";
 
 const UserService = {
@@ -38,6 +39,15 @@ const UserService = {
     const queryClient = useQueryClient();
 
     const { mutate, isLoading, data } = useMutation(createUser, {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["GetUsers"]);
+      },
+    });
+    return { mutate, isLoading, data };
+  },
+  useUpdateUser: () => {
+    const queryClient = useQueryClient();
+    const { mutate, isLoading, data } = useMutation(updateUser, {
       onSuccess: () => {
         queryClient.invalidateQueries(["GetUsers"]);
       },
