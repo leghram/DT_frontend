@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
 
-import { get, getById } from "../../services/users.service";
+import { get, getById, deleteUser } from "../../services/users.service";
 
 const UserService = {
   useGetUsers: () => {
@@ -16,6 +16,18 @@ const UserService = {
       queryFn: () => getById(id),
     });
     return { data, isLoading, refetch, isError };
+  },
+  useDeleteUser: () => {
+    const queryClient = useQueryClient();
+    const { mutate, isLoading, data } = useMutation(
+      (id: number) => deleteUser(id),
+      {
+        onSuccess: () => {
+          queryClient.invalidateQueries(["GetUsers"]);
+        },
+      },
+    );
+    return { mutate, isLoading, data };
   },
 };
 
