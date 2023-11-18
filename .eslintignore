@@ -3,4 +3,3 @@ node_modules
 
 tailwind.config.cjs
 postcss.config.cjs
-tailwind.config.js
