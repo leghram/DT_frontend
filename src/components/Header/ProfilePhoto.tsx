@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import UpIcon from "../../assets/icons/up.svg";
 import DownIcon from "../../assets/icons/down.svg";
 
 import UserService from "../../pages/Users/service";
 
+import { useDataContextProvider } from "../../context/AuthContext";
+
 function ProfilePhoto() {
   const [clicked, setClicked] = useState(false);
+  const navigate = useNavigate();
+  const { data: logged, setData: setLogged } = useDataContextProvider();
 
-  const { data, isLoading, isError } = UserService.useGetUserById(1);
+  const { data, isLoading, isError } = UserService.useGetUserById(
+    Number(localStorage.getItem("id")),
+  );
 
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
@@ -25,9 +32,10 @@ function ProfilePhoto() {
   };
 
   const btnLogOut = () => {
-    const total = 23;
-    const value = 23;
-    const suma = "Compnentes acualiado";
+    setLogged(false);
+    navigate("/login");
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
   };
 
   return (
