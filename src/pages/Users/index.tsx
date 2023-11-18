@@ -6,6 +6,7 @@ import UserService from "./service";
 import Row from "./components/Row";
 import { UserApi, UserUI } from "../../types/users";
 import FormCreate from "./components/FormCreate";
+import FormUpdate from "./components/FormUpdate";
 
 function Users() {
   const {
@@ -17,6 +18,8 @@ function Users() {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [updateUserModal, setUpdateUserModal] = useState(false);
+  const [isReadyToUpdate, setIsReadyToUpdate] = useState(false);
 
   useEffect(() => {
     if (
@@ -27,7 +30,7 @@ function Users() {
     }
   }, []);
 
-  const [currentUserClicked, setCurrentUserClicked] = useState(0);
+  const [currentUserClicked, setCurrentUserClicked] = useState({});
 
   useEffect(() => {
     if (!isLoading && !isError) {
@@ -49,6 +52,15 @@ function Users() {
 
   return (
     <div className="flex flex-col h-full w-full">
+      {updateUserModal && (
+        <div className="bg-clear/95 absolute w-screen h-screen top-0 left-0 z-50 flex items-center justify-center">
+          <FormUpdate
+            closeModal={setUpdateUserModal}
+            refetch={refetch}
+            currentUserClicked={currentUserClicked}
+          />
+        </div>
+      )}
       <div className="w-full">
         <Header title="Users" />
       </div>
@@ -81,6 +93,8 @@ function Users() {
                     currentUserClicked={currentUserClicked}
                     setCurrentUserClicked={setCurrentUserClicked}
                     refetch={refetch}
+                    updateUserModal={updateUserModal}
+                    setUpdateUserModal={setUpdateUserModal}
                   />
                 );
               })}

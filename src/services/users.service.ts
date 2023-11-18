@@ -19,3 +19,8 @@ export const createUser = async (user: any) => {
   const response = await service.post("/users/", user);
   return response.data;
 };
+
+export const updateUser = async (user: any) => {
+  const response = await service.put(`/users/${user.id}`, user);
+  return response.data;
+};

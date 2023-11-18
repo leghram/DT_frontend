@@ -5,9 +5,11 @@ import UserService from "../service";
 
 interface IProps {
   userRow: UserUI;
-  currentUserClicked: number;
-  setCurrentUserClicked: (item: number) => void;
+  currentUserClicked: any;
+  setCurrentUserClicked: (item: any) => void;
   refetch: any;
+  updateUserModal: boolean;
+  setUpdateUserModal: (value: boolean) => void;
 }
 
 function Row({
@@ -15,6 +17,8 @@ function Row({
   currentUserClicked,
   setCurrentUserClicked,
   refetch,
+  updateUserModal,
+  setUpdateUserModal,
 }: IProps) {
   const [clicked, setClicked] = useState(false);
   const [activeRow, setActiveRow] = useState(false);
@@ -23,7 +27,7 @@ function Row({
 
   const handleClickBtn = () => {
     setClicked(!clicked);
-    setCurrentUserClicked(userRow.id);
+    setCurrentUserClicked({ ...userRow });
   };
 
   useEffect(() => {
@@ -41,10 +45,13 @@ function Row({
   }, [currentUserClicked]);
 
   const handleDelete = () => {
-    console.log("asdf");
     deleteUser(currentUserClicked, {
       onSuccess: () => refetch(),
     });
+  };
+
+  const handleUpdate = () => {
+    setUpdateUserModal(true);
   };
 
   return (
@@ -73,6 +80,7 @@ function Row({
                 className="my-[5px] p-[4px] bg-blue-100 rounded-md"
                 type="button"
                 value="Update"
+                onClick={handleUpdate}
               />
               <input
                 className="my-[3px] p-[4px] bg-red-100 rounded-md"
