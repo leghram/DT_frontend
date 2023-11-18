@@ -1,6 +1,6 @@
 export interface UserUI {
   id: number;
-  nombres: string;
+  nombre: string;
   username: string;
   componente: React.ReactNode;
 }
