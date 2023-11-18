@@ -66,22 +66,20 @@ function Row({
           {clicked && activeRow && (
             <div
               className={`rounded-md absolute top-full flex flex-col bg-white text-black text-[1rem] px-[10px] ${
-                clicked && activeRow ? "z-50" : ""
+                clicked && activeRow ? "z-40" : ""
               } `}
             >
-              <button
+              <input
                 className="my-[5px] p-[4px] bg-blue-100 rounded-md"
                 type="button"
-              >
-                Update
-              </button>
-              <button
+                value="Update"
+              />
+              <input
                 className="my-[3px] p-[4px] bg-red-100 rounded-md"
                 type="button"
                 onClick={handleDelete}
-              >
-                Delete
-              </button>
+                value="Delete"
+              />
             </div>
           )}
         </button>
