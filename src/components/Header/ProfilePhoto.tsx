@@ -13,7 +13,7 @@ function ProfilePhoto() {
   const btnLogOut = () => {
     const total = 23;
     const value = 23;
-    const suma = total + value;
+    const suma = "Compnentes acualiado";
   };
 
   return (
