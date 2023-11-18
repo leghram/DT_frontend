@@ -1,11 +1,7 @@
-function App(): JSX.Element {
-  const a = 1;
+import AppRouter from "./router";
 
-  return (
-    <div className="h-screen w-screen bg-red-300">
-      <h1>App</h1>
-    </div>
-  );
+function App(): JSX.Element {
+  return <AppRouter />;
 }
 
 export default App;
