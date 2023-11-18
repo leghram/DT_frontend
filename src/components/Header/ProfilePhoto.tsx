@@ -1,10 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import UpIcon from "../../assets/icons/up.svg";
 import DownIcon from "../../assets/icons/down.svg";
 
+import UserService from "../../pages/Users/service";
+
 function ProfilePhoto() {
   const [clicked, setClicked] = useState(false);
+
+  const { data, isLoading, isError } = UserService.useGetUserById(1);
+
+  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    if (!isLoading && !isError) {
+      setUsername(data.username);
+      setName(`${data.nombre} ${data.apellido}`);
+    }
+  }, [isLoading, isError]);
 
   const btnOnClick = () => {
     setClicked(!clicked);
@@ -25,7 +39,7 @@ function ProfilePhoto() {
             src="https://cdn-icons-png.flaticon.com/512/1698/1698535.png"
             alt=""
           />
-          <p className="mx-[20px]">User Name</p>
+          <p className="mx-[20px]">{name}</p>
           <button
             type="button"
             className="h-[25px] w-[25px] flex items-center justify-center"
@@ -40,10 +54,11 @@ function ProfilePhoto() {
         </div>
       </div>
       {clicked && (
-        <div className="absolute top-full bg-red-300 w-full my-[12px] rounded-xl py-[5px]">
+        <div className="absolute top-full bg-clear w-full my-[12px] rounded-xl py-[5px] z-50">
+          <p className="py-[4px] text-center">{username}</p>
           <button
             type="button"
-            className="w-full text-[1.1rem]"
+            className="w-full text-[1.1rem] bg-red-300 rounded-md my-[4px] py-[3px] text-white font-bold"
             onClick={btnLogOut}
           >
             Salir
