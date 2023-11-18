@@ -22,7 +22,7 @@ function ProfilePhoto() {
         <div className="w-full flex items-center">
           <img
             className="w-[2.5rem] h-[2.5rem] rounded-full"
-            src="https://w7.pngwing.com/pngs/519/698/png-transparent-user-profile-avatar-scalable-graphics-icon-girls-face-fashion-girl-people-thumbnail.png"
+            src="https://cdn-icons-png.flaticon.com/512/1698/1698535.png"
             alt=""
           />
           <p className="mx-[20px]">User Name</p>
