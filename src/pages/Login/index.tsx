@@ -11,6 +11,9 @@ function Login() {
   const { data, setData } = useDataContextProvider();
   const navigate = useNavigate();
 
+  const [token, setToken] = useState("");
+  const [userId, setUserId] = useState(0);
+
   useEffect(() => {
     if (data) {
       navigate("/");
@@ -23,6 +26,8 @@ function Login() {
 
   useEffect(() => {
     if (logged) {
+      localStorage.setItem("token", token);
+      localStorage.setItem("id", String(userId));
       setData(true);
       navigate("/");
     }
@@ -37,6 +42,8 @@ function Login() {
         const response = await getToken(formData);
 
         if (response.status === 200) {
+          setToken(response.data.access_token);
+          setUserId(response.data.user.id);
           setLogged(true);
         }
       }

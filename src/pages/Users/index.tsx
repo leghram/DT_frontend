@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import HeaderRow from "./components/HeaderRow";
 import UserService from "./service";
@@ -8,6 +9,17 @@ import { UserApi, UserUI } from "../../types/users";
 function Users() {
   const { data: dataUsers, isLoading, isError } = UserService.useGetUsers();
   const [data, setData] = useState([]);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (
+      localStorage.getItem("id") == null ||
+      localStorage.getItem("token") == null
+    ) {
+      navigate("/login");
+    }
+  }, []);
 
   useEffect(() => {
     if (!isLoading && !isError) {
