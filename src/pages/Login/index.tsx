@@ -1,10 +1,55 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { useDataContextProvider } from "../../context/AuthContext";
+import getToken from "../../services/auth.service";
+
 function Login() {
+  const [username, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [logged, setLogged] = useState(false);
+  const { data, setData } = useDataContextProvider();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (data) {
+      navigate("/");
+    }
+  }, []);
 
   const btnNavigateRegister = () => {
     navigate("/register");
+  };
+
+  useEffect(() => {
+    if (logged) {
+      setData(true);
+      navigate("/");
+    }
+  }, [logged]);
+
+  const btnLogin = async () => {
+    try {
+      if (username.length > 0 && password.length > 0) {
+        const formData = new FormData();
+        formData.append("username", username);
+        formData.append("password", password);
+        const response = await getToken(formData);
+
+        if (response.status === 200) {
+          setLogged(true);
+        }
+      }
+    } catch (error) {
+      setLogged(false);
+    }
+  };
+
+  const onChangeUsername = (event: any) => {
+    setUserName(event.target.value);
+  };
+  const onChangePassword = (event: any) => {
+    setPassword(event.target.value);
   };
 
   return (
@@ -17,6 +62,7 @@ function Login() {
         >
           Email
           <input
+            onChange={onChangeUsername}
             type="text"
             id="email"
             name="email"
@@ -33,6 +79,7 @@ function Login() {
         >
           Password
           <input
+            onChange={onChangePassword}
             type="password"
             id="Password"
             name="Password"
@@ -46,6 +93,7 @@ function Login() {
         <button
           type="button"
           className="w-full bg-primary rounded-lg block p-2.5 text-white hover:bg-primary/70"
+          onClick={btnLogin}
         >
           Log In
         </button>
