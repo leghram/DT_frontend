@@ -12,7 +12,7 @@ function GenericLayout() {
         <Navbar />
       </div>
       <div className="grow overflow-y-scroll px-8 bg-clear">
-        <div className="w-full">
+        <div className="w-full h-full">
           <Outlet />
         </div>
       </div>
