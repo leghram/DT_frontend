@@ -8,7 +8,6 @@ interface IProps {
   currentUserClicked: any;
   setCurrentUserClicked: (item: any) => void;
   refetch: any;
-  updateUserModal: boolean;
   setUpdateUserModal: (value: boolean) => void;
 }
 
@@ -17,13 +16,12 @@ function Row({
   currentUserClicked,
   setCurrentUserClicked,
   refetch,
-  updateUserModal,
   setUpdateUserModal,
 }: IProps) {
   const [clicked, setClicked] = useState(false);
   const [activeRow, setActiveRow] = useState(false);
 
-  const { mutate: deleteUser, isLoading } = UserService.useDeleteUser();
+  const { mutate: deleteUser } = UserService.useDeleteUser();
 
   const handleClickBtn = () => {
     setClicked(!clicked);

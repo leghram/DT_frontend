@@ -11,7 +11,7 @@ import { useDataContextProvider } from "../../context/AuthContext";
 function ProfilePhoto() {
   const [clicked, setClicked] = useState(false);
   const navigate = useNavigate();
-  const { data: logged, setData: setLogged } = useDataContextProvider();
+  const { setData: setLogged } = useDataContextProvider();
 
   const { data, isLoading, isError } = UserService.useGetUserById(
     Number(localStorage.getItem("id")),
