@@ -24,6 +24,12 @@ cd tuproyecto
 npm install
 ```
 
+## Setear las variables de entorno
+
+Agrega la variables de entorno.
+
+referencia en .env.example
+
 ## Ejecución Local
 
 Inicia la aplicación en modo de desarrollo.
