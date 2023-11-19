@@ -1,6 +1,8 @@
-# Nombre del Proyecto
+# App crud usuarios
 
-Descripción concisa del proyecto.
+La aplicacion brinda las opciones de login y registro de nuevos usuarios.
+
+Al ingresar a la aplicacion se pueden realizar diferentes operaciones CRUD sobre los usuarios que se encuentran listados en la pagina de /users
 
 ## Tabla de Contenidos
 
