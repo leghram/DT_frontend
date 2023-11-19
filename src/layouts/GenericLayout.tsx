@@ -11,7 +11,7 @@ function GenericLayout() {
         </div>
         <Navbar />
       </div>
-      <div className="grow overflow-y-scroll px-8 bg-clear">
+      <div className="grow overflow-y-scroll md:px-8 bg-clear">
         <div className="w-full h-full">
           <Outlet />
         </div>
