@@ -21,7 +21,7 @@ function MenuItem({ urlPage, namePage }: IProps) {
   return (
     <NavLink
       to={`${urlPage}`}
-      className={`text-[1.4rem] py-[8px] text-center text-white w-full rounded-l-2xl font-500 ${
+      className={`text-[1.4rem] py-[8px] text-center text-white w-full rounded-md md:rounded-none md:rounded-l-2xl font-500 ${
         activePage && " bg-clear"
       }`}
     >

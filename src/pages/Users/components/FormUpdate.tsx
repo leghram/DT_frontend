@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import UserService from "../service";
+import validateEmail from "../../../utils";
 
 interface IProps {
   closeModal: (a: boolean) => void;
@@ -15,20 +16,27 @@ function FormUpdate({ closeModal, refetch, currentUserClicked }: IProps) {
   const [username, setUsername] = useState(currentUserClicked.username);
 
   const handleCreateUserBtn = () => {
-    updateUser(
-      {
-        id: currentUserClicked.id,
-        nombre: name,
-        apellido: secondName,
-        username: username,
-      },
-      {
-        onSuccess: () => {
-          closeModal(false);
-          refetch();
+    if (
+      name.length > 0 &&
+      secondName.length > 0 &&
+      username.length > 0 &&
+      validateEmail(username)
+    ) {
+      updateUser(
+        {
+          id: currentUserClicked.id,
+          nombre: name,
+          apellido: secondName,
+          username: username,
         },
-      },
-    );
+        {
+          onSuccess: () => {
+            closeModal(false);
+            refetch();
+          },
+        },
+      );
+    }
   };
 
   return (
