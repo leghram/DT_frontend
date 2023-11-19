@@ -45,7 +45,7 @@ function Register() {
   };
 
   return (
-    <form className="w-[40%] p-[30px] shadow-[0px_5px_5px_0px_rgb(230_220_220)] rounded-xl">
+    <form className="md:w-[40%] px-[10px] md:p-[30px] shadow-[0px_5px_5px_0px_rgb(230_220_220)] rounded-xl">
       <h1 className="text-center py-[10px] font-bold text-[1.2rem]">
         Register
       </h1>

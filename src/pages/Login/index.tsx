@@ -60,7 +60,7 @@ function Login() {
   };
 
   return (
-    <form className="w-[40%] p-[30px] shadow-[0px_5px_5px_0px_rgb(230_220_220)] rounded-xl">
+    <form className="lg:w-[40%] p-[30px] shadow-[0px_5px_5px_0px_rgb(230_220_220)] rounded-xl">
       <h1 className="text-center py-[10px] font-bold text-[1.2rem]">Login</h1>
       <div className="py-[20px]">
         <label
