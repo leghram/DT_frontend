@@ -4,9 +4,9 @@ import Navbar from "../components/Navbar";
 
 function GenericLayout() {
   return (
-    <div className="h-screen w-screen flex bg-clear">
-      <div className="bg-primary w-[15%] rounded-r-3xl py-8">
-        <div className="text-white text-[1.5rem] font-bold w-full flex items-center justify-center py-[10px]">
+    <div className="h-screen w-screen bg-clear flex flex-col md:flex-row flex-col-reverse ">
+      <div className="bg-primary w-full md:w-[20%]  lg:w-[15%] md:rounded-r-3xl py-8">
+        <div className="collapse md:visible text-white md:text-[1.5rem] font-bold w-full flex items-center justify-center md:py-[10px]">
           Menu
         </div>
         <Navbar />
