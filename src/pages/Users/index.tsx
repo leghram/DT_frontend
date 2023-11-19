@@ -19,7 +19,6 @@ function Users() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [updateUserModal, setUpdateUserModal] = useState(false);
-  const [isReadyToUpdate, setIsReadyToUpdate] = useState(false);
 
   useEffect(() => {
     if (
@@ -93,7 +92,6 @@ function Users() {
                     currentUserClicked={currentUserClicked}
                     setCurrentUserClicked={setCurrentUserClicked}
                     refetch={refetch}
-                    updateUserModal={updateUserModal}
                     setUpdateUserModal={setUpdateUserModal}
                   />
                 );
