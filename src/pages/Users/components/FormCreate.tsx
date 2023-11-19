@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import UserService from "../service";
+import validateEmail from "../../../utils";
 
 interface IProps {
   closeModal: (a: boolean) => void;
@@ -15,20 +16,28 @@ function FormCreate({ closeModal, refetch }: IProps) {
   const [password, setPassword] = useState("");
 
   const handleCreateUserBtn = () => {
-    createUser(
-      {
-        nombre: name,
-        apellido: secondName,
-        username: username,
-        password: password,
-      },
-      {
-        onSuccess: () => {
-          closeModal(false);
-          refetch();
+    if (
+      name.length > 0 &&
+      secondName.length > 0 &&
+      username.length > 0 &&
+      password.length > 0 &&
+      validateEmail(username)
+    ) {
+      createUser(
+        {
+          nombre: name,
+          apellido: secondName,
+          username: username,
+          password: password,
         },
-      },
-    );
+        {
+          onSuccess: () => {
+            closeModal(false);
+            refetch();
+          },
+        },
+      );
+    }
   };
 
   return (

@@ -1,4 +1,4 @@
-const BASE_URL_API = "http://localhost:8000/apiv1";
+const BASE_URL_API = import.meta.env.VITE_URL_API;
 
 const HEADER_USERS = {
   id: "Id",

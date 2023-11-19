@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 import UserService from "../Users/service";
+import validateEmail from "../../utils";
 
 function Register() {
   const navigate = useNavigate();
@@ -23,7 +24,8 @@ function Register() {
       name.current.value.length > 0 &&
       secondName.current.value.length > 0 &&
       username.current.value.length > 0 &&
-      password.current.value.length > 0
+      password.current.value.length > 0 &&
+      validateEmail(username.current.value)
     ) {
       registerUser(
         {
