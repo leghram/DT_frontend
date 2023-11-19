@@ -62,7 +62,7 @@ function ProfilePhoto() {
         </div>
       </div>
       {clicked && (
-        <div className="absolute top-full bg-clear w-full my-[12px] rounded-xl py-[5px] z-50">
+        <div className="absolute top-full bg-white px-[5px] w-full my-[12px] rounded-xl py-[5px] z-50 shadow-md">
           <p className="py-[4px] text-center">{username}</p>
           <button
             type="button"
