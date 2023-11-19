@@ -1,30 +1,51 @@
-# React + TypeScript + Vite
+# Nombre del Proyecto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Descripción concisa del proyecto.
 
-Currently, two official plugins are available:
+## Tabla de Contenidos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Requisitos Previos](#requisitos-previos)
+- [Instalación](#instalación)
+- [Ejecución Local](#ejecución-local)
+- [Scripts Disponibles](#scripts-disponibles)
+- [Herramientas Utilizadas](#herramientas-utilizadas)
 
-## Expanding the ESLint configuration
+## Requisitos Previos
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Asegúrate de tener instalado Node.js y npm en tu máquina. Puedes descargarlos desde [https://nodejs.org/](https://nodejs.org/).
 
-- Configure the top-level `parserOptions` property like this:
+## Instalación
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+Clona el repositorio e instala las dependencias.
+
+```bash
+git clone https://github.com/tuusuario/tuproyecto.git
+cd tuproyecto
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Ejecución Local
+
+Inicia la aplicación en modo de desarrollo.
+
+```bash
+npm run dev
+```
+
+La aplicación estará disponible en http://localhost:5173/ en tu navegador.
+
+## Scripts Disponibles
+
+npm run dev: Inicia la aplicación en modo de desarrollo.
+npm run build: Construye la aplicación para producción.
+npm run test: Ejecuta pruebas.
+npm run lint: Ejecuta los linters
+
+## Herramientas Utilizadas
+
+- React
+- react-router-dom
+- react-query
+- axios
+- tailwindcss
+- typescript
